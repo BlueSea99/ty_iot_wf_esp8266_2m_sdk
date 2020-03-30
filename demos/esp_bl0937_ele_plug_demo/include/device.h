@@ -1,8 +1,9 @@
-/***********************************************************
-*  File: device.h 
-*  Author: nzy
-*  Date: 20150605
-***********************************************************/
+﻿/**
+ * @File: device.h 
+ * @Author: caojq 
+ * @Last Modified time: 2020-03-05 
+ * @Description: 
+ */
 #ifndef _DEVICE_H
     #define _DEVICE_H
 
@@ -24,15 +25,12 @@
 ***********************************************************/
 // device information define
 #define SW_VER USER_SW_VER
-//#define PRODECT_KEY "PjK3wjTrPflaFX8p"
-#define PRODECT_KEY "kqfg8s0rjmybr6eh"
 #define DEF_DEV_ABI DEV_SINGLE
-
+#define PRODUCT_KEY "b8yrxe9cjcfdzbeu"
 /***********************************************************
 *************************variable define********************
 ***********************************************************/
-
-
+    
 /***********************************************************
 *************************function define********************
 ***********************************************************/
@@ -44,6 +42,7 @@
 ***********************************************************/
 __DEVICE_EXT \
 OPERATE_RET device_init(VOID);
+
 
 
 #ifdef __cplusplus

@@ -15,7 +15,9 @@ ifndef PDIR
 GEN_LIBS = libuser.a
 endif
 
-
+# add by mjl
+TOP_DIR = ../../..
+sinclude $(TOP_DIR)/platforms/build_sh/make_rule
 #############################################################
 # Configuration i.e. compile options etc.
 # Target specific stuff (defines etc.) goes in here!
@@ -24,8 +26,7 @@ endif
 #   for a subtree within the makefile rooted therein
 #
 #DEFINES += 
-CSRCS := $(wildcard ./*.c ../../../app_components/*.c)
-
+CSRCS := $(wildcard ./*.c )
 #############################################################
 # Recursion Magic - Don't touch this!!
 #
@@ -38,15 +39,12 @@ CSRCS := $(wildcard ./*.c ../../../app_components/*.c)
 # Required for each makefile to inherit from the parent
 #
 
-# add by nzy 20150804 set TOP_DIR
-TOP_DIR = ../../../
-sinclude $(TOP_DIR)/platforms/build_sh/make_rule
-
 PDIR := $(TOP_DIR)/$(PDIR)
-INCLUDES := $(INCLUDES) -I $(PDIR)sdk/esp8266/fac_include -I../include
-INCLUDES += -I ./ -I $(TOP_DIR)/sdk/esp8266/tuya_include/include/
+INCLUDES := $(INCLUDES) -I ./ -I ../include
+INCLUDES += -I $(TOP_DIR)/sdk/esp8266/fac_include
+INCLUDES += -I $(TOP_DIR)/sdk/esp8266/tuya_include/include
 INCLUDES += -I $(TOP_DIR)/sdk/esp8266/tuya_include
-INCLUDES += -I ../../../app_components/
-
+INCLUDES += $(TY_COMPONENT_INCLUDES)
+CSRCS += $(TY_COMPONENT_SRC_C)
 sinclude $(PDIR)Makefile
 
